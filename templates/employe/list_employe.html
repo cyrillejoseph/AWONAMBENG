@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<style>
+body{
+	background-color: #ebeff5;
+}
+</style>
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="text text-center">LISTE DES EMPLOYES AYANT DEMANDE UN BON DE PRISE EN CHARGE</h3>
+        <br>
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Nom de l'Employé</th>
+                <th>Prénom</th>
+                <th>Centre</th>
+                <th>Email</th>
+                <th>Statut</th>
+                <th>Créer le</th>
+                <th>Par</th>
+            </tr>
+            {% for element in dataEmploye %}
+            <tr>
+                <td>{{ element.matric }}</td>
+                <td>{{ element.nompers }}</td>
+                <td>{{ element.prenom }}</td>
+                <td>{{ element.centre }}</td>
+                <td>{{ element.email}}</td>
+                <td>{{ element.status }}</td>
+                <td>{{ element.datcreat }}</td>
+                <td>{{ element.nomcreat }}</td>
+            </tr>
+            {% endfor %}
+            </thead>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

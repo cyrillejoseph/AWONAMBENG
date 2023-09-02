@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<style>
+body{
+	background-color: #ebeff5;
+}
+</style>
+
+<br>
+<div class="container-fluid">
+	<div class="row">
+		<h3 class="text text-center">DEMANDES DE BONS DE PRISE EN CHARGE</h3>
+		<hr>
+		<div class="col-md-4">
+			<h5>Employés ayant demandé un bon de Prise en Charge :</h5>
+			<hr>
+			<div class="card card-body">
+				<div class="d-grid gap-2 d-md-block">
+					<a class="btn btn-primary  btn-sm btn-block" href="#">Ajouter Un Employé</a>
+					<a class="btn btn-secondary  btn-sm btn-block" href="#">Rechercher</a>
+				</div>
+
+				<table class="table table-sm">
+					<tr>
+						<th>ID</th>
+						<th>Matric</th>
+						<th>Nom Employé</th>
+						<th>Détails</th>
+					</tr>
+					{% for employe in employes %}
+					<tr>
+						<td><a href="">{{employe.id}}</a></td>
+						<td>{{employe.matric}}</td>
+						<td>{{employe.nompers}}</td>
+						<td><a class='btn btn-sm btn-success' href="">Détails</a></td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+
+		<div class="col-md-8">
+			<h5>Toutes les Demandes de BPC :</h5>
+			<hr>
+			<div class="card card-body">
+				<div class="d-grid gap-2 d-md-block">
+					<a class="btn btn-primary  btn-sm btn-block" href="#">Ajouter une Demande de BPC</a>
+					<a class="btn btn-secondary  btn-sm btn-block" href="#">Rechercher</a>
+				</div>
+				<table class="table table-sm">
+					<tr>
+						<th>ID</th>
+						<th>Relation</th>
+						<th>Matricule</th>
+						<th>Patient Ayant droit</th>
+						<th>Crée le</th>
+						<th>Stat</th>
+						<th>Modif</th>
+						<th>Suppr</th>
+					</tr>
+
+					{% for ddebpc in ddebpcs %}
+					<tr>
+						<!--					<td>{{ddebpc.personnel.id}}</td>-->
+						<td>{{ddebpc.relation}}</td>
+						<td>{{ddebpc.ayantdroit.matfil}}</td>
+						<td>{{ddebpc.ayantdroit.nomayd}}</td>
+						<td>{{ddebpc.datcreat}}</td>
+						<td>{{ddebpc.status}}</td>
+						<td><a class='btn btn-sm btn-info' href="#">Modif</a></td>
+						<td><a class='btn btn-sm btn-danger' href="#">Suppr</a></td>
+					</tr>
+					{% endfor %}
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock contenu %}

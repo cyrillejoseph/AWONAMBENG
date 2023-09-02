@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<style>
+body{
+	background-color: #ebeff5;
+}
+</style>
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="text text-center">LISTE DU PERSONNEL SUDCAM</h3>
+        <br>
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Nom de l'Employé</th>
+                <th>Prénom</th>
+                <th>Sexe</th>
+                <th>Date de Naissance</th>
+                <th>Sit. Fam</th>
+                <th>Nb Enf</th>
+                <th>Statut</th>
+                <th>Créer le</th>
+                <th>Par</th>
+            </tr>
+            {% for element in personnel %}
+            <tr>
+                <td>{{ element.matric }}</td>
+                <td>{{ element.nompers }}</td>
+                <td>{{ element.prenom }}</td>
+                <td>{{ element.sexe }}</td>
+                <td>{{ element.datnais}}</td>
+                <td>{{ element.sitfam }}</td>
+                <td>{{ element.nbrenf }}</td>
+                <td>{{ element.statut }}</td>
+                <td>{{ element.datcreat}}</td>
+                <td>{{ element.nomcreat }}</td>
+            </tr>
+            {% endfor %}
+            </thead>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

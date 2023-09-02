@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block contenu %}
+
+<style>
+body{
+	background-color: #ebeff5;
+}
+</style>
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="text text-center">LISTE DES AYANTS DROIT SUDCAM</h3>
+        <br>
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Nom de l'Ayant Droit</th>
+                <th>Prénom</th>
+                <th>Sexe</th>
+                <th>Date de Naissance</th>
+                <th>Filiation</th>
+                <th>Statut</th>
+                <th>Créer le</th>
+                <th>Par</th>
+            </tr>
+            {% for element in ayantdroit %}
+            <tr>
+                <td>{{ element.matfil }}</td>
+                <td>{{ element.nomayd }}</td>
+                <td>{{ element.prenom }}</td>
+                <td>{{ element.sexe }}</td>
+                <td>{{ element.datnais}}</td>
+                <td>{{ element.filiation }}</td>
+                <td>{{ element.statut }}</td>
+                <td>{{ element.datcreat}}</td>
+                <td>{{ element.nomcreat }}</td>
+            </tr>
+            {% endfor %}
+            </thead>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
